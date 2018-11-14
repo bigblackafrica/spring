@@ -18,6 +18,11 @@ public class UserService {
     }
 
     public User save(User user){
-        return userDao.save(user);
+         return userDao.save(user);
+
+    }
+
+    public void deleteById(int id){
+        userDao.deleteById(id);
     }
 }
