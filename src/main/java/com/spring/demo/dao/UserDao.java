@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 @Repository
 public interface UserDao extends CrudRepository<User,Integer> {
 
+    User getById(int id);
+
     @Transactional
     void deleteById(int userId);
 

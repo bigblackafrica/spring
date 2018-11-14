@@ -4,10 +4,7 @@ import com.spring.demo.entity.User;
 import com.spring.demo.service.UserService;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,8 +21,19 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @RequestMapping(method = RequestMethod.POST,produces = "application/json")
-    public User saveUser(@RequestBody User user){
-        return userService.save(user);
+    @RequestMapping(value = "/id/{id}")
+    public User getById(@PathVariable int id){
+        return userService.getById(id);
     }
+
+    @RequestMapping(method = RequestMethod.POST,produces = "application/json")
+    public User saveOrUpdate(@RequestBody User user){
+        return userService.saveOrUpdate(user);
+    }
+
+    @RequestMapping(value = "/id/{id}",method = RequestMethod.DELETE)
+    public void deleteById(@PathVariable int id){
+              userService.deleteById(id);
+    }
+
 }

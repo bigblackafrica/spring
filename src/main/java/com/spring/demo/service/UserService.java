@@ -17,7 +17,11 @@ public class UserService {
         return (List<User>) userDao.findAll();
     }
 
-    public User save(User user){
+    public User getById(int id){
+        return userDao.getById(id);
+    }
+
+    public User saveOrUpdate(User user){
          return userDao.save(user);
 
     }
