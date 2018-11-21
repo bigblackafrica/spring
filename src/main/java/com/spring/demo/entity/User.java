@@ -22,4 +22,14 @@ public class User {
     @Column(name = "salary", nullable = true, length = 10)
     @ApiModelProperty(required = true)
     private Integer salary;
+
+    @Column(name = "emailAddress",nullable = false,length = 255)
+    @ApiModelProperty(required = true)
+    private String emailAddress;
+
+    @Transient
+    private String password;
+
+    @Column(name="passwordHash",nullable = false,length = 255)
+    private String passwordHash;
 }

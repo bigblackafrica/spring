@@ -26,7 +26,19 @@ public class UserService {
 
     }
 
+    public void savePasswordToken(String token,int userId){
+         userDao.savePasswordToken(token, userId);
+    }
+
     public void deleteById(int id){
         userDao.deleteById(id);
+    }
+
+    public String getTokenByUserName(String username){
+        return userDao.getTokenByUserName(username);
+    }
+
+    public User getUserByUsername(String username){
+        return userDao.getByEmailAddress(username);
     }
 }
