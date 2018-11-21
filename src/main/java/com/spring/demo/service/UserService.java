@@ -17,7 +17,28 @@ public class UserService {
         return (List<User>) userDao.findAll();
     }
 
-    public User save(User user){
-        return userDao.save(user);
+    public User getById(int id){
+        return userDao.getById(id);
+    }
+
+    public User saveOrUpdate(User user){
+         return userDao.save(user);
+
+    }
+
+    public void savePasswordToken(String token,int userId){
+         userDao.savePasswordToken(token, userId);
+    }
+
+    public void deleteById(int id){
+        userDao.deleteById(id);
+    }
+
+    public String getTokenByUserName(String username){
+        return userDao.getTokenByUserName(username);
+    }
+
+    public User getUserByUsername(String username){
+        return userDao.getByEmailAddress(username);
     }
 }
